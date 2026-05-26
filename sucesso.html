@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitação recebida — Operaris ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🍽️</div>
+        Operaris
+      </a>
+    </div>
+  </nav>
+
+  <div class="success-page">
+    <div class="container">
+      <div class="success-card fade-in">
+        <div class="success-icon">✓</div>
+        <h1>Solicitação recebida!</h1>
+        <p>
+          Enviamos as instruções de pagamento e sua chave de licença para
+          <span class="email-highlight" id="success-email">seu e-mail</span>.
+        </p>
+        <p>
+          Após a confirmação do pagamento, sua licença será ativada e você receberá o link para baixar o Operaris ERP.
+        </p>
+
+        <div class="success-steps">
+          <div class="success-step">
+            <div class="step-num">1</div>
+            <div class="step-text">Verifique sua caixa de entrada (e spam) para o e-mail com o link de pagamento.</div>
+          </div>
+          <div class="success-step">
+            <div class="step-num">2</div>
+            <div class="step-text">Efetue o pagamento via Pix, boleto ou cartão de crédito.</div>
+          </div>
+          <div class="success-step">
+            <div class="step-num">3</div>
+            <div class="step-text">Após a confirmação, você receberá o link de download e sua chave de licença por e-mail.</div>
+          </div>
+          <div class="success-step">
+            <div class="step-num">4</div>
+            <div class="step-text">Instale o Operaris ERP na sua máquina, insira a chave e comece a usar.</div>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn btn-outline btn-lg" style="width:100%;margin-top:8px;">
+          Voltar ao início
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const emailEl = document.getElementById('success-email');
+    if (email && emailEl) emailEl.textContent = email;
+  </script>
+</body>
+</html>
