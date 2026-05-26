@@ -90,14 +90,20 @@ function buildFeatureList(plan) {
   // From features JSON field
   if (plan.features && typeof plan.features === 'object') {
     const map = {
-      tables: 'Gestão de mesas',
-      orders: 'Pedidos por garçom',
-      stock: 'Controle de estoque',
-      expenses: 'Gestão de despesas',
-      cashier: 'Caixa com sangria e fechamento',
-      reports: 'Relatórios detalhados',
-      multiUser: 'Multi-usuário',
-      products: 'Cadastro de produtos/insumos',
+      tables:     'Gestão de mesas',
+      orders:     'Pedidos por garçom',
+      stock:      'Controle de estoque',
+      expenses:   'Gestão de despesas',
+      cashier:    'Caixa com sangria e fechamento',
+      reports:    'Relatórios detalhados',
+      multiUser:  'Multi-usuário',
+      multiuser:  'Multi-usuário',
+      products:   'Cadastro de produtos/insumos',
+      management: 'Gestão avançada (estoque, despesas e produção)',
+      financial:  'Dashboard financeiro',
+      kds:        'KDS — tela de produção',
+      printing:   'Impressão térmica de pedidos e recibos',
+      audit:      'Auditoria e log de ações',
     };
     Object.entries(plan.features).forEach(([k, v]) => {
       if (v && map[k]) features.push(map[k]);
