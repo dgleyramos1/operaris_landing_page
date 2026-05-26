@@ -1,25 +1,61 @@
+const FALLBACK_PLANS = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    description: 'Ideal para lanchonetes e pequenos bares que estão começando.',
+    basePrice: 497,
+    interval: 'yearly',
+    maxDevices: 1,
+    graceDays: 7,
+    features: { tables: true, orders: true, cashier: true, products: true },
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    description: 'Para restaurantes em crescimento com equipe de garçons.',
+    basePrice: 897,
+    interval: 'yearly',
+    maxDevices: 3,
+    graceDays: 15,
+    features: { tables: true, orders: true, stock: true, expenses: true, cashier: true, products: true, multiUser: true },
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    description: 'Operação completa para estabelecimentos de maior porte.',
+    basePrice: 1497,
+    interval: 'yearly',
+    maxDevices: 10,
+    graceDays: 30,
+    features: { tables: true, orders: true, stock: true, expenses: true, cashier: true, products: true, multiUser: true, reports: true },
+  },
+];
+
 async function loadPlans() {
   const container = document.getElementById('plans-container');
   if (!container) return;
 
   try {
-    const res = await fetch(`${CONFIG.API_BASE_URL}/plans`);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(`${CONFIG.API_BASE_URL}/plans`, { signal: controller.signal });
+    clearTimeout(timeout);
     if (!res.ok) throw new Error('Falha ao carregar planos');
     const plans = await res.json();
-
-    if (!plans.length) {
-      container.innerHTML = '<p class="plans-error">Nenhum plano disponível no momento.</p>';
-      return;
-    }
-
-    // Pick the middle plan as featured (or the most expensive if only 2)
-    const featuredIdx = plans.length > 1 ? Math.floor(plans.length / 2) : 0;
-
-    container.innerHTML = plans.map((plan, i) => renderPlan(plan, i === featuredIdx)).join('');
+    renderPlans(container, plans.length ? plans : FALLBACK_PLANS);
   } catch (err) {
-    container.innerHTML = `<p class="plans-error">Não foi possível carregar os planos. Tente novamente mais tarde.</p>`;
-    console.error(err);
+    console.warn('API indisponível, usando planos de exemplo:', err.message);
+    renderPlans(container, FALLBACK_PLANS);
   }
+}
+
+function renderPlans(container, plans) {
+  if (!plans.length) {
+    container.innerHTML = '<p class="plans-error">Nenhum plano disponível no momento.</p>';
+    return;
+  }
+  const featuredIdx = plans.length > 1 ? Math.floor(plans.length / 2) : 0;
+  container.innerHTML = plans.map((plan, i) => renderPlan(plan, i === featuredIdx)).join('');
 }
 
 function renderPlan(plan, featured) {
