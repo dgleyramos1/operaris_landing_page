@@ -30,45 +30,75 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>✦</span>
-          Sistema <span>local</span> · sem mensalidade de internet · sem nuvem obrigatória
+    <!-- Decorative blobs -->
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+
+    <div class="hero-grid container">
+
+      <!-- LEFT: copy -->
+      <div class="hero-copy">
+        <div class="hero-badge fade-in">
+          <span class="badge-dot"></span>
+          Sistema <strong>local</strong> · sem nuvem obrigatória · sem fidelidade
         </div>
 
-        <h1 class="fade-in">
-          Gestão completa para<br/>
-          <span class="gradient-text">seu estabelecimento</span>
+        <h1 class="fade-in fade-in-d1">
+          Seu restaurante<br/>
+          no <span class="gradient-text">controle total</span>
         </h1>
 
-        <p class="fade-in fade-in-d1">
-          ERP instalado diretamente na sua máquina. Mesas, pedidos, estoque, caixa e relatórios — tudo funcionando mesmo sem internet.
+        <p class="hero-sub fade-in fade-in-d2">
+          ERP instalado na sua máquina. Mesas, pedidos, estoque e caixa — funcionando mesmo sem internet, no dia a dia do seu estabelecimento.
         </p>
 
-        <div class="hero-cta fade-in fade-in-d2">
-          <a href="#planos" class="btn btn-primary btn-lg">Começar agora</a>
-          <a href="#features" class="btn btn-outline btn-lg">Ver funcionalidades</a>
+        <div class="hero-cta fade-in fade-in-d3">
+          <a href="#planos" class="btn btn-primary btn-lg">
+            Escolher plano
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#features" class="btn btn-ghost btn-lg">Ver funcionalidades</a>
         </div>
 
-        <div class="hero-stats fade-in fade-in-d3">
-          <div class="stat">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Funciona offline</div>
+        <div class="hero-trust fade-in fade-in-d4">
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#22c55e" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Funciona 100% offline
           </div>
-          <div class="stat">
-            <div class="stat-value">1 vez</div>
-            <div class="stat-label">Instalação simples</div>
+          <div class="trust-sep">·</div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#22c55e" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Instalação em minutos
           </div>
-          <div class="stat">
-            <div class="stat-value">∞</div>
-            <div class="stat-label">Pedidos & mesas</div>
+          <div class="trust-sep">·</div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#22c55e" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Seus dados ficam com você
           </div>
         </div>
       </div>
 
-      <!-- Dashboard Mockup -->
-      <div class="hero-visual">
+      <!-- RIGHT: mockup -->
+      <div class="hero-visual-wrap fade-in fade-in-d2">
+
+        <!-- floating accent cards -->
+        <div class="float-card float-card-tl">
+          <div class="fc-icon">💰</div>
+          <div class="fc-body">
+            <div class="fc-label">Faturamento hoje</div>
+            <div class="fc-value">R$ 1.847,50</div>
+          </div>
+        </div>
+
+        <div class="float-card float-card-br">
+          <div class="fc-icon fc-green">✓</div>
+          <div class="fc-body">
+            <div class="fc-label">Mesa 7 fechada</div>
+            <div class="fc-value" style="color:var(--green)">R$ 145,00</div>
+          </div>
+        </div>
+
+        <!-- main mockup -->
         <div class="mockup-window">
           <div class="mockup-titlebar">
             <div class="dot dot-red"></div>
@@ -77,51 +107,71 @@
             <span>Operaris ERP — Dashboard</span>
           </div>
           <div class="mockup-body">
-            <div class="mockup-row">
-              <div class="mockup-card">
-                <div class="mockup-card-label">Faturamento hoje</div>
-                <div class="mockup-card-value green">R$ 1.847</div>
+            <!-- nav sidebar hint -->
+            <div class="mockup-layout">
+              <div class="mockup-sidebar">
+                <div class="msb-item active">📊</div>
+                <div class="msb-item">🍽️</div>
+                <div class="msb-item">📋</div>
+                <div class="msb-item">📦</div>
+                <div class="msb-item">💰</div>
               </div>
-              <div class="mockup-card">
-                <div class="mockup-card-label">Mesas abertas</div>
-                <div class="mockup-card-value accent">7</div>
-              </div>
-              <div class="mockup-card">
-                <div class="mockup-card-label">Pedidos</div>
-                <div class="mockup-card-value">34</div>
-              </div>
-            </div>
-            <div class="mockup-chart-area">
-              <div class="chart-bars">
-                <div class="bar" style="height:40%"></div>
-                <div class="bar" style="height:65%"></div>
-                <div class="bar" style="height:50%"></div>
-                <div class="bar" style="height:80%"></div>
-                <div class="bar" style="height:55%"></div>
-                <div class="bar" style="height:90%"></div>
-                <div class="bar" style="height:70%"></div>
-              </div>
-            </div>
-            <div class="mockup-table-area">
-              <div class="mockup-table-row">
-                <span class="mtr-name">Mesa 3 — João</span>
-                <span class="mtr-status open">Aberta</span>
-                <span class="mtr-value">R$ 89,50</span>
-              </div>
-              <div class="mockup-table-row">
-                <span class="mtr-name">Mesa 7 — Maria</span>
-                <span class="mtr-status paid">Paga</span>
-                <span class="mtr-value">R$ 145,00</span>
-              </div>
-              <div class="mockup-table-row">
-                <span class="mtr-name">Mesa 1 — Carlos</span>
-                <span class="mtr-status open">Aberta</span>
-                <span class="mtr-value">R$ 62,00</span>
+              <div class="mockup-main">
+                <div class="mockup-row">
+                  <div class="mockup-card">
+                    <div class="mockup-card-label">Faturamento</div>
+                    <div class="mockup-card-value green">R$ 1.847</div>
+                    <div class="mockup-card-delta">↑ 12% hoje</div>
+                  </div>
+                  <div class="mockup-card">
+                    <div class="mockup-card-label">Mesas abertas</div>
+                    <div class="mockup-card-value accent">7</div>
+                    <div class="mockup-card-delta">de 12 mesas</div>
+                  </div>
+                  <div class="mockup-card">
+                    <div class="mockup-card-label">Pedidos</div>
+                    <div class="mockup-card-value">34</div>
+                    <div class="mockup-card-delta">↑ desde 18h</div>
+                  </div>
+                </div>
+                <div class="mockup-chart-area">
+                  <div class="chart-label">Vendas por hora</div>
+                  <div class="chart-bars">
+                    <div class="bar" style="height:30%"></div>
+                    <div class="bar" style="height:55%"></div>
+                    <div class="bar" style="height:42%"></div>
+                    <div class="bar" style="height:75%"></div>
+                    <div class="bar" style="height:60%"></div>
+                    <div class="bar" style="height:95%"></div>
+                    <div class="bar bar-active" style="height:78%"></div>
+                  </div>
+                </div>
+                <div class="mockup-table-area">
+                  <div class="mockup-table-row">
+                    <span class="mtr-num">03</span>
+                    <span class="mtr-name">Mesa 3 — João</span>
+                    <span class="mtr-status open">Aberta</span>
+                    <span class="mtr-value">R$ 89,50</span>
+                  </div>
+                  <div class="mockup-table-row">
+                    <span class="mtr-num">07</span>
+                    <span class="mtr-name">Mesa 7 — Maria</span>
+                    <span class="mtr-status paid">Paga</span>
+                    <span class="mtr-value">R$ 145,00</span>
+                  </div>
+                  <div class="mockup-table-row">
+                    <span class="mtr-num">01</span>
+                    <span class="mtr-name">Mesa 1 — Carlos</span>
+                    <span class="mtr-status open">Aberta</span>
+                    <span class="mtr-value">R$ 62,00</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
