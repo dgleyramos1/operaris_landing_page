@@ -1,35 +1,3 @@
-const FALLBACK_PLANS = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    description: 'Ideal para lanchonetes e pequenos bares que estão começando.',
-    basePrice: 497,
-    interval: 'yearly',
-    maxDevices: 1,
-    graceDays: 7,
-    features: { tables: true, orders: true, cashier: true, products: true },
-  },
-  {
-    id: 'pro',
-    name: 'Pro',
-    description: 'Para restaurantes em crescimento com equipe de garçons.',
-    basePrice: 897,
-    interval: 'yearly',
-    maxDevices: 3,
-    graceDays: 15,
-    features: { tables: true, orders: true, stock: true, expenses: true, cashier: true, products: true, multiUser: true },
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    description: 'Operação completa para estabelecimentos de maior porte.',
-    basePrice: 1497,
-    interval: 'yearly',
-    maxDevices: 10,
-    graceDays: 30,
-    features: { tables: true, orders: true, stock: true, expenses: true, cashier: true, products: true, multiUser: true, reports: true },
-  },
-];
 
 async function loadPlans() {
   const container = document.getElementById('plans-container');
@@ -42,7 +10,7 @@ async function loadPlans() {
     clearTimeout(timeout);
     if (!res.ok) throw new Error('Falha ao carregar planos');
     const plans = await res.json();
-    renderPlans(container, plans.length ? plans : FALLBACK_PLANS);
+    renderPlans(container, plans);
   } catch (err) {
     console.warn('API indisponível, usando planos de exemplo:', err.message);
     renderPlans(container, FALLBACK_PLANS);

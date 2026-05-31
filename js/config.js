@@ -1,3 +1,3 @@
 const CONFIG = {
-  API_BASE_URL: 'http://localhost:3002/api/public',
+  API_BASE_URL: 'https://api.operaris.com.br/api/public',
 };
