@@ -117,10 +117,9 @@
             <div class="dot dot-red"></div>
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
-            <span>Operaris ERP — Dashboard</span>
+            <span>Operaris ERP</span>
           </div>
           <div class="mockup-body">
-            <!-- nav sidebar hint -->
             <div class="mockup-layout">
               <div class="mockup-sidebar">
                 <div class="msb-item active">📊</div>
@@ -130,6 +129,10 @@
                 <div class="msb-item">💰</div>
               </div>
               <div class="mockup-main">
+                <div class="mockup-page-header">
+                  <span class="mockup-page-title">Painel</span>
+                  <span class="mockup-page-sub">Hoje · 19:42</span>
+                </div>
                 <div class="mockup-row">
                   <div class="mockup-card">
                     <div class="mockup-card-label">Faturamento</div>
@@ -142,39 +145,45 @@
                     <div class="mockup-card-delta">de 12 mesas</div>
                   </div>
                   <div class="mockup-card">
-                    <div class="mockup-card-label">Pedidos</div>
-                    <div class="mockup-card-value">34</div>
+                    <div class="mockup-card-label">Lucro líquido</div>
+                    <div class="mockup-card-value green">R$ 612</div>
                     <div class="mockup-card-delta">↑ desde 18h</div>
                   </div>
                 </div>
                 <div class="mockup-chart-area">
-                  <div class="chart-label">Vendas por hora</div>
+                  <div class="chart-label">Vendas por hora — hoje</div>
                   <div class="chart-bars">
-                    <div class="bar" style="height:30%"></div>
-                    <div class="bar" style="height:55%"></div>
-                    <div class="bar" style="height:42%"></div>
-                    <div class="bar" style="height:75%"></div>
-                    <div class="bar" style="height:60%"></div>
-                    <div class="bar" style="height:95%"></div>
-                    <div class="bar bar-active" style="height:78%"></div>
+                    <div class="bar" style="height:25%"></div>
+                    <div class="bar" style="height:45%"></div>
+                    <div class="bar" style="height:38%"></div>
+                    <div class="bar" style="height:70%"></div>
+                    <div class="bar" style="height:58%"></div>
+                    <div class="bar" style="height:90%"></div>
+                    <div class="bar bar-active" style="height:75%"></div>
+                  </div>
+                  <div class="chart-times">
+                    <span>13h</span><span>14h</span><span>15h</span><span>16h</span><span>17h</span><span>18h</span><span>19h</span>
                   </div>
                 </div>
                 <div class="mockup-table-area">
                   <div class="mockup-table-row">
                     <span class="mtr-num">03</span>
-                    <span class="mtr-name">Mesa 3 — João</span>
+                    <span class="mtr-name">Mesa 3 · 4 pax</span>
+                    <span class="mtr-time">42 min</span>
                     <span class="mtr-status open">Aberta</span>
                     <span class="mtr-value">R$ 89,50</span>
                   </div>
                   <div class="mockup-table-row">
                     <span class="mtr-num">07</span>
-                    <span class="mtr-name">Mesa 7 — Maria</span>
+                    <span class="mtr-name">Mesa 7 · 2 pax</span>
+                    <span class="mtr-time">1h 8m</span>
                     <span class="mtr-status paid">Paga</span>
                     <span class="mtr-value">R$ 145,00</span>
                   </div>
                   <div class="mockup-table-row">
                     <span class="mtr-num">01</span>
-                    <span class="mtr-name">Mesa 1 — Carlos</span>
+                    <span class="mtr-name">Mesa 1 · 6 pax</span>
+                    <span class="mtr-time">18 min</span>
                     <span class="mtr-status open">Aberta</span>
                     <span class="mtr-value">R$ 62,00</span>
                   </div>
@@ -247,34 +256,74 @@
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">🗺️ Salão — 8 mesas</div>
-              <div class="tables-grid" style="padding:12px;">
-                <div class="table-chip free">01<br/>Livre</div>
-                <div class="table-chip busy">02<br/>Ocup.</div>
-                <div class="table-chip busy">03<br/>Ocup.</div>
-                <div class="table-chip reserved">04<br/>Res.</div>
-                <div class="table-chip partial">05<br/>Parc.</div>
-                <div class="table-chip busy">06<br/>Ocup.</div>
-                <div class="table-chip maintenance">07<br/>Manut.</div>
-                <div class="table-chip free">08<br/>Livre</div>
+              <div class="fbm-header">🗺️ Mapa do Salão</div>
+              <div class="fbm-tabs">
+                <div class="fbm-tab active">Todas (8)</div>
+                <div class="fbm-tab">Livres (2)</div>
+                <div class="fbm-tab">Ocupadas (4)</div>
+              </div>
+              <div class="floor-grid">
+                <div class="floor-table floor-free">
+                  <div class="ft-num">01</div>
+                  <div class="ft-label">Livre</div>
+                </div>
+                <div class="floor-table floor-busy">
+                  <div class="ft-num">02</div>
+                  <div class="ft-pax">4 pax</div>
+                  <div class="ft-time">38 min</div>
+                  <div class="ft-val">R$ 124</div>
+                </div>
+                <div class="floor-table floor-busy">
+                  <div class="ft-num">03</div>
+                  <div class="ft-pax">2 pax</div>
+                  <div class="ft-time">1h 2m</div>
+                  <div class="ft-val">R$ 89</div>
+                </div>
+                <div class="floor-table floor-reserved">
+                  <div class="ft-num">04</div>
+                  <div class="ft-label">Reservada</div>
+                </div>
+                <div class="floor-table floor-partial">
+                  <div class="ft-num">05</div>
+                  <div class="ft-pax">3 pax</div>
+                  <div class="ft-time">22 min</div>
+                  <div class="ft-val">R$ 47</div>
+                </div>
+                <div class="floor-table floor-busy">
+                  <div class="ft-num">06</div>
+                  <div class="ft-pax">6 pax</div>
+                  <div class="ft-time">47 min</div>
+                  <div class="ft-val">R$ 218</div>
+                </div>
+                <div class="floor-table floor-maintenance">
+                  <div class="ft-num">07</div>
+                  <div class="ft-label">Manut.</div>
+                </div>
+                <div class="floor-table floor-free">
+                  <div class="ft-num">08</div>
+                  <div class="ft-label">Livre</div>
+                </div>
               </div>
               <div class="fbm-divider"></div>
-              <div class="fbm-sub-header">📋 Mesa 3 — Pedidos (Cozinha + Bar)</div>
-              <div class="order-list" style="padding:8px 12px 12px;">
+              <div class="fbm-sub-header">📋 Mesa 6 — Pedido ativo</div>
+              <div class="order-list" style="padding:6px 12px 12px;">
                 <div class="order-item">
                   <span class="order-item-name">Picanha 300g <span class="order-item-note">sem cebola</span></span>
-                  <span class="order-item-qty">×1</span>
-                  <span class="order-item-price">R$ 68,00</span>
+                  <span class="order-sector order-sector--coz">Coz.</span>
+                  <span class="order-item-qty">×2</span>
+                  <span class="order-item-price">R$ 136,00</span>
                 </div>
                 <div class="order-item">
-                  <span class="order-item-name">Cerveja Artesanal</span>
-                  <span class="order-item-qty">×3</span>
-                  <span class="order-item-price">R$ 42,00</span>
+                  <span class="order-item-name">Chopp 600ml</span>
+                  <span class="order-sector order-sector--bar">Bar</span>
+                  <span class="order-item-qty">×4</span>
+                  <span class="order-item-price">R$ 52,00</span>
                 </div>
                 <div class="order-item">
                   <span class="order-item-name">Fritas Crocantes <span class="order-item-note">bem crocante</span></span>
+                  <span class="order-sector order-sector--coz">Coz.</span>
                   <span class="order-item-qty">×2</span>
-                  <span class="order-item-price">R$ 28,00</span>
+                  <span class="order-item-price">R$ 30,00</span>
                 </div>
               </div>
             </div>
@@ -298,23 +347,31 @@
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">🍕 Novo pedido — Pizza Grande</div>
+              <div class="fbm-header">🍕 Novo pedido — Mesa 3</div>
+              <div class="fbm-tabs">
+                <div class="fbm-tab">Pratos</div>
+                <div class="fbm-tab active">Pizzas</div>
+                <div class="fbm-tab">Bebidas</div>
+              </div>
               <div class="pizza-mock">
                 <div class="pizza-sizes-row">
                   <div class="pizza-size">P<div class="pizza-size-max">1 sabor</div></div>
                   <div class="pizza-size">M<div class="pizza-size-max">2 sabores</div></div>
                   <div class="pizza-size active">G<div class="pizza-size-max">3 sabores</div></div>
                 </div>
+                <div class="pizza-flavors-label">Sabores selecionados (2 de 3)</div>
                 <div class="pizza-flavors">
                   <div class="pizza-flavor">
                     <span class="pizza-frac">½</span>
                     <span class="pizza-fname">Margherita</span>
                     <span class="pizza-fprice">R$ 52,00</span>
+                    <span class="pizza-remove">×</span>
                   </div>
                   <div class="pizza-flavor">
                     <span class="pizza-frac">½</span>
                     <span class="pizza-fname">Frango C. Verde</span>
                     <span class="pizza-fprice">R$ 58,00</span>
+                    <span class="pizza-remove">×</span>
                   </div>
                 </div>
                 <div class="pizza-total-row">
@@ -333,7 +390,7 @@
                 <div class="avail-item">
                   <span class="avail-dot avail-off"></span>
                   <span class="avail-name">Calabresa</span>
-                  <span class="avail-status avail-status--off">Sem estoque</span>
+                  <span class="avail-status avail-status--off">Sem estoque — desativada</span>
                 </div>
                 <div class="avail-item">
                   <span class="avail-dot avail-on"></span>
@@ -362,7 +419,11 @@
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">👨‍🍳 KDS — Cozinha em tempo real</div>
+              <div class="fbm-header">👨‍🍳 KDS — Setor: Cozinha</div>
+              <div class="fbm-sector-tabs">
+                <div class="fbm-sector-tab active">🍳 Cozinha (3)</div>
+                <div class="fbm-sector-tab">🍺 Bar (2)</div>
+              </div>
               <div class="kds-grid">
                 <div class="kds-ticket kds-new">
                   <div class="kds-t-header">
@@ -371,30 +432,42 @@
                   </div>
                   <div class="kds-t-items">
                     <div class="kds-t-item">× 1 Picanha 300g</div>
+                    <div class="kds-t-item kds-t-item--note">↳ sem cebola</div>
                     <div class="kds-t-item">× 2 Fritas</div>
                   </div>
-                  <div class="kds-t-time kds-time--ok">● 2 min</div>
+                  <div class="kds-t-footer">
+                    <div class="kds-t-time kds-time--ok">● 2 min</div>
+                    <button class="kds-btn">Aceitar</button>
+                  </div>
                 </div>
                 <div class="kds-ticket kds-doing">
                   <div class="kds-t-header">
                     <span class="kds-mesa-num">Mesa 7</span>
-                    <span class="kds-badge kds-badge--doing">Prep.</span>
+                    <span class="kds-badge kds-badge--doing">Produz.</span>
                   </div>
                   <div class="kds-t-items">
                     <div class="kds-t-item">× 1 Pizza G M.M.</div>
+                    <div class="kds-t-item kds-t-item--note">↳ Marg.+Frango</div>
                     <div class="kds-t-item kds-t-item--done">× 2 Cerveja ✓</div>
                   </div>
-                  <div class="kds-t-time kds-time--warn">● 8 min</div>
+                  <div class="kds-t-footer">
+                    <div class="kds-t-time kds-time--warn">● 8 min</div>
+                    <button class="kds-btn">Pronto</button>
+                  </div>
                 </div>
                 <div class="kds-ticket kds-doing kds-urgent">
                   <div class="kds-t-header">
                     <span class="kds-mesa-num">Mesa 2</span>
-                    <span class="kds-badge kds-badge--doing">Prep.</span>
+                    <span class="kds-badge kds-badge--doing">Produz.</span>
                   </div>
                   <div class="kds-t-items">
                     <div class="kds-t-item">× 2 Costela BBQ</div>
+                    <div class="kds-t-item kds-t-item--note">↳ bem passada</div>
                   </div>
-                  <div class="kds-t-time kds-time--crit">● 14 min</div>
+                  <div class="kds-t-footer">
+                    <div class="kds-t-time kds-time--crit">● 14 min ⚠</div>
+                    <button class="kds-btn kds-btn--urgent">Pronto</button>
+                  </div>
                 </div>
               </div>
               <div class="kds-legend">
@@ -423,7 +496,7 @@
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">💰 Dashboard — Comparação de períodos</div>
+              <div class="fbm-header">💰 Painel Financeiro — Esta semana</div>
               <div class="period-compare">
                 <div class="period-col">
                   <div class="period-label">Esta semana</div>
@@ -437,6 +510,20 @@
                   <div class="period-profit" style="color:var(--text-muted)">Lucro R$ 3.380</div>
                 </div>
                 <div class="period-badge">↑ 21,8%</div>
+              </div>
+              <div class="fin-detail-row">
+                <div class="fin-detail-item">
+                  <div class="fin-detail-label">Custo (CMV)</div>
+                  <div class="fin-detail-val" style="color:#f87171">R$ 4.368</div>
+                </div>
+                <div class="fin-detail-item">
+                  <div class="fin-detail-label">Margem bruta</div>
+                  <div class="fin-detail-val" style="color:var(--green)">65%</div>
+                </div>
+                <div class="fin-detail-item">
+                  <div class="fin-detail-label">Lucro líquido</div>
+                  <div class="fin-detail-val" style="color:var(--green)">R$ 4.120</div>
+                </div>
               </div>
               <div class="fbm-divider"></div>
               <div class="fbm-sub-header">🏆 Top produtos (semana)</div>
@@ -461,7 +548,7 @@
               <div class="shift-row">
                 <div class="shift-icon-wrap">📋</div>
                 <div class="shift-body">
-                  <div class="shift-title">Turno — João (Caixa)</div>
+                  <div class="shift-title">Turno — João · Caixa</div>
                   <div class="shift-meta">34 mov. · R$ 4.820 · <span style="color:var(--accent-light)">↓ Relatório PDF</span></div>
                 </div>
               </div>
