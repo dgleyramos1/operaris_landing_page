@@ -23,7 +23,7 @@ function initSummary() {
   if (!planId) window.location.href = 'index.html#planos';
 }
 
-// Masks
+// ===== MASKS =====
 function maskPhone(v) {
   const d = v.replace(/\D/g, '').slice(0, 11);
   if (d.length <= 10) return d.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3').replace(/-$/, '');
@@ -36,7 +36,62 @@ function maskDocument(v) {
   return d.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2})/, '$1.$2.$3/$4-$5').replace(/-$/, '').replace(/\/+$/, '');
 }
 
-// Error helpers
+function maskCep(v) {
+  const d = v.replace(/\D/g, '').slice(0, 8);
+  return d.replace(/(\d{5})(\d{0,3})/, '$1-$2').replace(/-$/, '');
+}
+
+// ===== VIACEP =====
+let cepController = null;
+
+async function fetchCep(cep) {
+  const raw = cep.replace(/\D/g, '');
+  if (raw.length !== 8) return;
+
+  const status = document.getElementById('cep-status');
+  setError('cep', '');
+  status.className = 'cep-status cep-loading';
+  status.title = '';
+
+  if (cepController) cepController.abort();
+  cepController = new AbortController();
+
+  try {
+    const res = await fetch(`https://viacep.com.br/ws/${raw}/json/`, { signal: cepController.signal });
+    const data = await res.json();
+
+    if (data.erro) {
+      setError('cep', 'CEP não encontrado');
+      clearAddressFields();
+      status.className = 'cep-status cep-error';
+      return;
+    }
+
+    document.getElementById('street').value = data.logradouro || '';
+    document.getElementById('neighborhood').value = data.bairro || '';
+    document.getElementById('city').value = data.localidade || '';
+    document.getElementById('state').value = data.uf || '';
+
+    status.className = 'cep-status cep-ok';
+    status.title = `${data.localidade} — ${data.uf}`;
+
+    // Foca no número se rua foi preenchida, senão foca na rua
+    const next = data.logradouro ? 'number' : 'street';
+    document.getElementById(next).focus();
+  } catch (err) {
+    if (err.name === 'AbortError') return;
+    setError('cep', 'Erro ao buscar CEP. Tente novamente.');
+    status.className = 'cep-status cep-error';
+  }
+}
+
+function clearAddressFields() {
+  ['street', 'neighborhood', 'city', 'state'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+}
+
+// ===== ERROR HELPERS =====
 function setError(id, msg) {
   const el = document.getElementById(`err-${id}`);
   if (el) { el.textContent = msg || ''; el.style.display = msg ? 'block' : 'none'; }
@@ -48,9 +103,9 @@ function clearErrors(ids) {
   ids.forEach(id => setError(id, ''));
 }
 
-// Validation
+// ===== VALIDATION =====
 function validateStep1() {
-  clearErrors(['bizName', 'phone', 'document']);
+  clearErrors(['bizName', 'phone', 'document', 'cep', 'street', 'number', 'neighborhood']);
   const errors = {};
 
   const name = document.getElementById('bizName').value.trim();
@@ -62,6 +117,19 @@ function validateStep1() {
   const doc = (document.getElementById('document').value || '').replace(/\D/g, '');
   if (!doc) errors.document = 'CPF ou CNPJ obrigatório';
   else if (doc.length !== 11 && doc.length !== 14) errors.document = 'CPF (11 dígitos) ou CNPJ (14 dígitos)';
+
+  const cep = (document.getElementById('cep').value || '').replace(/\D/g, '');
+  if (!cep) errors.cep = 'CEP obrigatório';
+  else if (cep.length !== 8) errors.cep = 'CEP inválido';
+
+  const street = document.getElementById('street').value.trim();
+  if (!street) errors.street = 'Rua obrigatória';
+
+  const number = document.getElementById('number').value.trim();
+  if (!number) errors.number = 'Número obrigatório';
+
+  const neighborhood = document.getElementById('neighborhood').value.trim();
+  if (!neighborhood) errors.neighborhood = 'Bairro obrigatório';
 
   Object.entries(errors).forEach(([k, v]) => setError(k, v));
   return Object.keys(errors).length === 0;
@@ -87,7 +155,7 @@ function validateStep2() {
   return Object.keys(errors).length === 0;
 }
 
-// Step navigation
+// ===== STEP NAVIGATION =====
 function goToStep(step) {
   document.getElementById(`step-${currentStep}`).style.display = 'none';
   document.getElementById(`step-${step}`).style.display = 'block';
@@ -114,13 +182,18 @@ function goToStep(step) {
 }
 
 function collectStep1() {
-  stepData.name = document.getElementById('bizName').value.trim();
-  stepData.phone = document.getElementById('phone').value;
-  stepData.document = document.getElementById('document').value;
-  stepData.address = document.getElementById('address').value.trim();
+  stepData.name        = document.getElementById('bizName').value.trim();
+  stepData.phone       = document.getElementById('phone').value;
+  stepData.document    = document.getElementById('document').value;
+  stepData.cep         = document.getElementById('cep').value;
+  stepData.street      = document.getElementById('street').value.trim();
+  stepData.number      = document.getElementById('number').value.trim();
+  stepData.neighborhood = document.getElementById('neighborhood').value.trim();
+  stepData.city        = document.getElementById('city').value.trim();
+  stepData.state       = document.getElementById('state').value.trim();
 }
 
-// Submit
+// ===== SUBMIT =====
 async function handleSubmit() {
   if (!validateStep2()) return;
 
@@ -134,7 +207,7 @@ async function handleSubmit() {
     planId,
     ...stepData,
     userName: document.getElementById('userName').value.trim(),
-    email: document.getElementById('email').value.trim(),
+    email:    document.getElementById('email').value.trim(),
     password: document.getElementById('password').value,
   };
 
@@ -177,7 +250,7 @@ async function handleSubmit() {
   }
 }
 
-// Password visibility toggle
+// ===== PASSWORD TOGGLE =====
 function setupPasswordToggle(inputId, btnId) {
   const input = document.getElementById(inputId);
   const btn = document.getElementById(btnId);
@@ -190,6 +263,7 @@ function setupPasswordToggle(inputId, btnId) {
   });
 }
 
+// ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   initSummary();
 
@@ -198,6 +272,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('document').addEventListener('input', e => {
     e.target.value = maskDocument(e.target.value);
+  });
+
+  const cepInput = document.getElementById('cep');
+  cepInput.addEventListener('input', e => {
+    e.target.value = maskCep(e.target.value);
+    if (e.target.value.replace(/\D/g, '').length === 8) fetchCep(e.target.value);
+  });
+  cepInput.addEventListener('blur', e => {
+    if (e.target.value.replace(/\D/g, '').length === 8) fetchCep(e.target.value);
   });
 
   document.getElementById('btn-next').addEventListener('click', () => {

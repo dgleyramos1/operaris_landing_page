@@ -95,11 +95,56 @@
               </div>
             </div>
 
+            <!-- CEP -->
             <div class="form-group">
-              <label for="address">Endereço</label>
-              <input type="text" id="address" class="form-input"
-                placeholder="Rua, número, bairro, cidade/UF"
-                autocomplete="street-address" />
+              <label for="cep">CEP *</label>
+              <div class="input-cep-wrap">
+                <input type="text" id="cep" class="form-input"
+                  placeholder="00000-000"
+                  inputmode="numeric"
+                  maxlength="9" />
+                <span class="cep-status" id="cep-status"></span>
+              </div>
+              <div id="err-cep" class="form-error" style="display:none;"></div>
+            </div>
+
+            <!-- Rua + Número -->
+            <div class="form-row form-row--3-1">
+              <div class="form-group">
+                <label for="street">Rua *</label>
+                <input type="text" id="street" class="form-input"
+                  placeholder="Nome da rua"
+                  autocomplete="address-line1" />
+                <div id="err-street" class="form-error" style="display:none;"></div>
+              </div>
+              <div class="form-group">
+                <label for="number">Número *</label>
+                <input type="text" id="number" class="form-input"
+                  placeholder="Ex: 123" />
+                <div id="err-number" class="form-error" style="display:none;"></div>
+              </div>
+            </div>
+
+            <!-- Bairro -->
+            <div class="form-group">
+              <label for="neighborhood">Bairro *</label>
+              <input type="text" id="neighborhood" class="form-input"
+                placeholder="Nome do bairro" />
+              <div id="err-neighborhood" class="form-error" style="display:none;"></div>
+            </div>
+
+            <!-- Cidade + Estado -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">Cidade</label>
+                <input type="text" id="city" class="form-input form-input-auto"
+                  placeholder="Preenchido pelo CEP" readonly />
+              </div>
+              <div class="form-group">
+                <label for="state">Estado</label>
+                <input type="text" id="state" class="form-input form-input-auto"
+                  placeholder="UF" readonly />
+              </div>
             </div>
 
             <button type="button" id="btn-next" class="form-submit">
