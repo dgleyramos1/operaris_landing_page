@@ -225,7 +225,14 @@ async function handleSubmit() {
     const result = await res.json();
 
     if (!res.ok) {
-      throw new Error(result.message || result.error || 'Erro ao processar solicitação');
+      const friendlyErrors = {
+        409: 'Este e-mail ou CPF/CNPJ já está cadastrado. Verifique os dados ou entre em contato com o suporte.',
+        400: result.message || result.error || 'Dados inválidos. Verifique as informações e tente novamente.',
+        422: result.message || result.error || 'Dados inválidos. Verifique as informações e tente novamente.',
+        500: 'Erro interno do servidor. Tente novamente em alguns instantes.',
+        503: 'Serviço temporariamente indisponível. Tente novamente em alguns instantes.',
+      };
+      throw new Error(friendlyErrors[res.status] || result.message || result.error || 'Erro ao processar solicitação');
     }
 
     if (result.checkoutUrl) {
