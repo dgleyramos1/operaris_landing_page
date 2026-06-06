@@ -226,19 +226,19 @@
 
       <div class="feature-blocks">
 
-        <!-- BLOCO 1: Salão e Atendimento -->
+        <!-- BLOCO 1: Salão, Mesas e Pedidos -->
         <div class="feature-block">
           <div class="feature-block-text">
             <div class="fblock-icon">🍽️</div>
-            <h3>Salão controlado,<br/>garçom mais ágil</h3>
-            <p class="fblock-sub">Mapa de mesas em tempo real e pedidos lançados pelo celular do garçom. Seu atendimento fica mais rápido — e o cliente percebe a diferença.</p>
+            <h3>Salão em tempo real,<br/>pedido sem papel</h3>
+            <p class="fblock-sub">4 status de mesa, sessões com couvert e múltiplas sessões por mesa. Cada item vai direto para cozinha ou bar — com notas por item e validação de estoque antes de confirmar.</p>
             <ul class="feature-detail-list">
-              <li>Mapa visual do salão com status ao vivo: livre, ocupada ou aguardando fechamento</li>
-              <li>Abertura de mesa com número de pessoas e couvert configurável por sessão</li>
-              <li>Garçom lança pedidos pelo celular ou tablet — sem papel, sem erro de anotação</li>
-              <li>Adicione itens à mesa a qualquer momento sem reabrir sessão</li>
-              <li>Divisão de conta por pessoa com um toque</li>
-              <li>Transferência de mesa sem perder o histórico do pedido</li>
+              <li>4 status de mesa em tempo real: Livre, Ocupada, Reservada e Manutenção — mapa visual atualizado a cada ação</li>
+              <li>Sessão com registro de coberturas e couvert automático por número de pessoas</li>
+              <li>Múltiplas sessões por mesa simultaneamente — ideal para rodízio e eventos sem reabrir o cadastro</li>
+              <li>Garçom adiciona notas por item ("sem cebola", "bem passado") diretamente no pedido</li>
+              <li>Validação de estoque antes de confirmar o pedido — bloqueia item fora de estoque automaticamente</li>
+              <li>Transferência de mesa e divisão de sessão entre clientes com um toque</li>
             </ul>
           </div>
           <div class="feature-block-visual">
@@ -248,17 +248,17 @@
                 <div class="table-chip free">01<br/>Livre</div>
                 <div class="table-chip busy">02<br/>Ocup.</div>
                 <div class="table-chip busy">03<br/>Ocup.</div>
-                <div class="table-chip free">04<br/>Livre</div>
+                <div class="table-chip reserved">04<br/>Res.</div>
                 <div class="table-chip partial">05<br/>Parc.</div>
                 <div class="table-chip busy">06<br/>Ocup.</div>
-                <div class="table-chip free">07<br/>Livre</div>
+                <div class="table-chip maintenance">07<br/>Manut.</div>
                 <div class="table-chip free">08<br/>Livre</div>
               </div>
               <div class="fbm-divider"></div>
-              <div class="fbm-sub-header">📋 Mesa 3 — Pedidos ativos</div>
+              <div class="fbm-sub-header">📋 Mesa 3 — Pedidos (Cozinha + Bar)</div>
               <div class="order-list" style="padding:8px 12px 12px;">
                 <div class="order-item">
-                  <span class="order-item-name">Picanha 300g</span>
+                  <span class="order-item-name">Picanha 300g <span class="order-item-note">sem cebola</span></span>
                   <span class="order-item-qty">×1</span>
                   <span class="order-item-price">R$ 68,00</span>
                 </div>
@@ -268,7 +268,7 @@
                   <span class="order-item-price">R$ 42,00</span>
                 </div>
                 <div class="order-item">
-                  <span class="order-item-name">Fritas Crocantes</span>
+                  <span class="order-item-name">Fritas Crocantes <span class="order-item-note">bem crocante</span></span>
                   <span class="order-item-qty">×2</span>
                   <span class="order-item-price">R$ 28,00</span>
                 </div>
@@ -277,23 +277,88 @@
           </div>
         </div>
 
-        <!-- BLOCO 2: Cozinha e KDS -->
+        <!-- BLOCO 2: Pizza e Cardápio Inteligente -->
         <div class="feature-block feature-block--reverse">
           <div class="feature-block-text">
-            <div class="fblock-icon">👨‍🍳</div>
-            <h3>Da mesa à cozinha<br/>em segundos</h3>
-            <p class="fblock-sub">O pedido aparece na tela da cozinha assim que o garçom confirma. Sem comanda de papel. Sem pedido esquecido no balcão.</p>
+            <div class="fblock-icon">🍕</div>
+            <h3>Pizza meia a meia<br/>e cardápio inteligente</h3>
+            <p class="fblock-sub">Sistema completo de pizzas com precificação por fração. P, M e G cada um com limite de sabores configurável. O cardápio desativa produtos sozinho quando o estoque acaba — e reativa quando volta.</p>
             <ul class="feature-detail-list">
-              <li>KDS (Kitchen Display System): tela dedicada para a cozinha com pedidos em ordem de chegada</li>
-              <li>Impressão automática de comanda na cozinha ao lançar o pedido</li>
-              <li>Impressão do recibo e conta do cliente no fechamento da mesa</li>
-              <li>Suporte a impressoras térmicas padrão do mercado (58 mm e 80 mm)</li>
-              <li>Sem anotação manual — pedido lançado já vai direto para a produção</li>
+              <li>Sistema de pizza com tamanhos (P, M, G), máximo de sabores configurável por tamanho</li>
+              <li>Pizza meia/meia com precificação por fração — cobra automaticamente o maior valor entre os sabores selecionados</li>
+              <li>Produtos simples, combos (1 burger + 1 batata + 1 bebida) e fichas técnicas completas (BOM)</li>
+              <li>A cada venda o sistema desconta os insumos do estoque automaticamente — sem nenhuma anotação manual</li>
+              <li>Produto desativa sozinho quando algum ingrediente acaba; reativa automaticamente quando o estoque é reposto</li>
+              <li>Categorias com ordem de exibição customizável e fotos por produto e sabor</li>
             </ul>
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">👨‍🍳 KDS — Tela da Cozinha</div>
+              <div class="fbm-header">🍕 Novo pedido — Pizza Grande</div>
+              <div class="pizza-mock">
+                <div class="pizza-sizes-row">
+                  <div class="pizza-size">P<div class="pizza-size-max">1 sabor</div></div>
+                  <div class="pizza-size">M<div class="pizza-size-max">2 sabores</div></div>
+                  <div class="pizza-size active">G<div class="pizza-size-max">3 sabores</div></div>
+                </div>
+                <div class="pizza-flavors">
+                  <div class="pizza-flavor">
+                    <span class="pizza-frac">½</span>
+                    <span class="pizza-fname">Margherita</span>
+                    <span class="pizza-fprice">R$ 52,00</span>
+                  </div>
+                  <div class="pizza-flavor">
+                    <span class="pizza-frac">½</span>
+                    <span class="pizza-fname">Frango C. Verde</span>
+                    <span class="pizza-fprice">R$ 58,00</span>
+                  </div>
+                </div>
+                <div class="pizza-total-row">
+                  <span class="pizza-total-label">Total (maior valor)</span>
+                  <span class="pizza-total-price">R$ 58,00</span>
+                </div>
+              </div>
+              <div class="fbm-divider"></div>
+              <div class="fbm-sub-header">📦 Disponibilidade automática</div>
+              <div class="product-avail">
+                <div class="avail-item">
+                  <span class="avail-dot avail-on"></span>
+                  <span class="avail-name">Margherita</span>
+                  <span class="avail-status avail-status--on">Disponível</span>
+                </div>
+                <div class="avail-item">
+                  <span class="avail-dot avail-off"></span>
+                  <span class="avail-name">Calabresa</span>
+                  <span class="avail-status avail-status--off">Sem estoque</span>
+                </div>
+                <div class="avail-item">
+                  <span class="avail-dot avail-on"></span>
+                  <span class="avail-name">Frango C. Verde</span>
+                  <span class="avail-status avail-status--on">Disponível</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 3: Cozinha e KDS -->
+        <div class="feature-block">
+          <div class="feature-block-text">
+            <div class="fblock-icon">👨‍🍳</div>
+            <h3>Da mesa à cozinha<br/>em 2 segundos</h3>
+            <p class="fblock-sub">KDS com alertas de urgência por cor: verde abaixo de 5 minutos, amarelo até 10, vermelho acima. Cada setor vê só o que é seu. Impressoras por setor com fila automática e retry.</p>
+            <ul class="feature-detail-list">
+              <li>KDS em tempo real com cores de urgência por tempo — verde (&lt;5 min), amarelo (5–10 min), vermelho (&gt;10 min)</li>
+              <li>Filtro por setor: cozinha vê só os seus itens, bar vê os seus — sem cruzamento de pedidos</li>
+              <li>Status completo: Aguardando → Aceito → Em Produção → Pronto → Entregue</li>
+              <li>Suporte a impressoras Network (IP/porta), USB e Bluetooth — com fila automática e retry em falha</li>
+              <li>Receitas de produção (BOM): converte insumos em preparados — molhos, massas, temperos e bases</li>
+              <li>Som de notificação ao receber novo pedido — sem precisar ficar olhando a tela o tempo todo</li>
+            </ul>
+          </div>
+          <div class="feature-block-visual">
+            <div class="fb-mockup">
+              <div class="fbm-header">👨‍🍳 KDS — Cozinha em tempo real</div>
               <div class="kds-grid">
                 <div class="kds-ticket kds-new">
                   <div class="kds-t-header">
@@ -304,7 +369,7 @@
                     <div class="kds-t-item">× 1 Picanha 300g</div>
                     <div class="kds-t-item">× 2 Fritas</div>
                   </div>
-                  <div class="kds-t-time">Agora</div>
+                  <div class="kds-t-time kds-time--ok">● 2 min</div>
                 </div>
                 <div class="kds-ticket kds-doing">
                   <div class="kds-t-header">
@@ -312,141 +377,88 @@
                     <span class="kds-badge kds-badge--doing">Prep.</span>
                   </div>
                   <div class="kds-t-items">
-                    <div class="kds-t-item">× 1 Margherita</div>
+                    <div class="kds-t-item">× 1 Pizza G M.M.</div>
                     <div class="kds-t-item kds-t-item--done">× 2 Cerveja ✓</div>
                   </div>
-                  <div class="kds-t-time">3 min</div>
+                  <div class="kds-t-time kds-time--warn">● 8 min</div>
                 </div>
-                <div class="kds-ticket kds-done">
+                <div class="kds-ticket kds-doing kds-urgent">
                   <div class="kds-t-header">
-                    <span class="kds-mesa-num">Mesa 1</span>
-                    <span class="kds-badge kds-badge--done">Pronto</span>
+                    <span class="kds-mesa-num">Mesa 2</span>
+                    <span class="kds-badge kds-badge--doing">Prep.</span>
                   </div>
                   <div class="kds-t-items">
-                    <div class="kds-t-item kds-t-item--done">× 2 Suco ✓</div>
-                    <div class="kds-t-item kds-t-item--done">× 1 Salada ✓</div>
+                    <div class="kds-t-item">× 2 Costela BBQ</div>
                   </div>
-                  <div class="kds-t-time">7 min</div>
+                  <div class="kds-t-time kds-time--crit">● 14 min</div>
                 </div>
               </div>
-              <div class="print-indicator">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-                Comanda impressa automaticamente ao lançar pedido
+              <div class="kds-legend">
+                <span><span class="kds-leg-dot kds-leg-ok">●</span> &lt; 5 min</span>
+                <span><span class="kds-leg-dot kds-leg-warn">●</span> 5–10 min</span>
+                <span><span class="kds-leg-dot kds-leg-crit">●</span> &gt; 10 min</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- BLOCO 3: Cardápio, Produtos e Estoque -->
-        <div class="feature-block">
-          <div class="feature-block-text">
-            <div class="fblock-icon">📦</div>
-            <h3>Cada venda desconta<br/>do estoque. Sozinho.</h3>
-            <p class="fblock-sub">Cadastre seus pratos com os insumos que os compõem. A cada venda, o sistema desconta tudo do estoque automaticamente e avisa quando estiver acabando.</p>
-            <ul class="feature-detail-list">
-              <li>Cardápio completo com preço de venda, custo e margem calculada automaticamente</li>
-              <li>Fichas técnicas: defina os insumos de cada prato e o custo é atualizado sozinho</li>
-              <li>Baixa automática no estoque a cada venda — sem nenhuma anotação manual</li>
-              <li>Alertas de estoque mínimo configuráveis: saiba antes de acabar, não depois</li>
-              <li>Relatório de custo × receita por produto: descubra quais pratos realmente lucram</li>
-            </ul>
-          </div>
-          <div class="feature-block-visual">
-            <div class="fb-mockup">
-              <div class="fbm-header">🍕 Margherita — Ficha Técnica</div>
-              <div class="product-pricing">
-                <div class="pp-row">
-                  <span class="pp-label">Preço de venda</span>
-                  <span class="pp-value" style="color:var(--green)">R$ 52,00</span>
-                </div>
-                <div class="pp-row">
-                  <span class="pp-label">Custo dos insumos</span>
-                  <span class="pp-value" style="color:#f87171">R$ 14,30</span>
-                </div>
-                <div class="pp-row pp-row--main">
-                  <span class="pp-label">Margem de contribuição</span>
-                  <span class="pp-value" style="color:var(--green)">72,5%</span>
-                </div>
-              </div>
-              <div class="fbm-divider"></div>
-              <div class="fbm-sub-header">📦 Estoque atual dos insumos</div>
-              <div class="stock-bars" style="padding:8px 12px;">
-                <div class="stock-row">
-                  <div class="stock-row-label"><span>Farinha de trigo</span><span style="color:#f59e0b">1,2 kg ⚠️</span></div>
-                  <div class="stock-bar-bg"><div class="stock-bar-fill critical" style="width:12%"></div></div>
-                </div>
-                <div class="stock-row">
-                  <div class="stock-row-label"><span>Molho de tomate</span><span>4,5 L</span></div>
-                  <div class="stock-bar-bg"><div class="stock-bar-fill ok" style="width:70%"></div></div>
-                </div>
-                <div class="stock-row">
-                  <div class="stock-row-label"><span>Mussarela</span><span>2,1 kg</span></div>
-                  <div class="stock-bar-bg"><div class="stock-bar-fill low" style="width:35%"></div></div>
-                </div>
-              </div>
-              <div class="stock-alert">⚠️ Farinha de trigo abaixo do estoque mínimo</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- BLOCO 4: Financeiro e Gestão da Equipe -->
+        <!-- BLOCO 4: Financeiro, Turnos e Equipe -->
         <div class="feature-block feature-block--reverse">
           <div class="feature-block-text">
             <div class="fblock-icon">💰</div>
-            <h3>Dinheiro rastreado.<br/>Equipe sob controle.</h3>
-            <p class="fblock-sub">Do caixa ao relatório de despesas, tudo registrado em tempo real. Você acompanha o faturamento, controla a equipe e sabe exatamente onde o dinheiro está.</p>
+            <h3>Financeiro real,<br/>não estimado</h3>
+            <p class="fblock-sub">Dashboard com série temporal, comparação de dois períodos e ranking de produtos e funcionários. Turnos por operador, promoções sazonais e 7 perfis de acesso — com auditoria LGPD compliant.</p>
             <ul class="feature-detail-list">
-              <li>Dashboard financeiro com faturamento do dia, semana e mês em tempo real</li>
-              <li>Caixa com abertura, sangria, suprimento e fechamento com conferência de saldo</li>
-              <li>Gestão de despesas por categoria: fornecedores, pessoal, aluguel e contas fixas</li>
-              <li>Relatórios detalhados de vendas por produto, período e garçom</li>
-              <li>Múltiplos usuários com níveis de acesso: garçom, operador de caixa e gerente</li>
-              <li>Log de auditoria completo: veja cada ação registrada, quem fez e quando</li>
+              <li>Dashboard com lucro bruto, líquido, margem e comparação de dois períodos simultâneos</li>
+              <li>Top 8 produtos por receita, custo e lucro; ranking de garçons por volume de vendas</li>
+              <li>Turnos de trabalho: consolida caixa, vendas e movimentos de um operador em relatório PDF</li>
+              <li>Promoções e cupons com período de validade, tipo (% ou R$) e valor mínimo de compra</li>
+              <li>7 perfis granulares: ADMIN, GERENTE, CAIXA, GARÇOM, COZINHA, BAR e ESTOQUE — permissões individuais</li>
+              <li>Log de auditoria LGPD-compliant: antes/depois, IP e timestamp — rastreabilidade total de cada ação</li>
             </ul>
           </div>
           <div class="feature-block-visual">
             <div class="fb-mockup">
-              <div class="fbm-header">💰 Dashboard — Hoje</div>
-              <div class="fin-metrics">
-                <div class="fin-metric">
-                  <div class="fin-metric-label">Faturamento</div>
-                  <div class="fin-metric-value fin-green">R$ 1.847</div>
-                  <div class="fin-metric-delta">↑ 12% vs ontem</div>
+              <div class="fbm-header">💰 Dashboard — Comparação de períodos</div>
+              <div class="period-compare">
+                <div class="period-col">
+                  <div class="period-label">Esta semana</div>
+                  <div class="period-revenue">R$ 12.480</div>
+                  <div class="period-profit" style="color:var(--green)">Lucro R$ 4.120</div>
                 </div>
-                <div class="fin-metric">
-                  <div class="fin-metric-label">Despesas</div>
-                  <div class="fin-metric-value fin-red">R$ 320</div>
-                  <div class="fin-metric-delta">Hoje</div>
+                <div class="period-vs">vs</div>
+                <div class="period-col period-col--dim">
+                  <div class="period-label">Semana passada</div>
+                  <div class="period-revenue">R$ 10.250</div>
+                  <div class="period-profit" style="color:var(--text-muted)">Lucro R$ 3.380</div>
                 </div>
-                <div class="fin-metric">
-                  <div class="fin-metric-label">Mesas</div>
-                  <div class="fin-metric-value fin-accent">7/12</div>
-                  <div class="fin-metric-delta">Abertas</div>
+                <div class="period-badge">↑ 21,8%</div>
+              </div>
+              <div class="fbm-divider"></div>
+              <div class="fbm-sub-header">🏆 Top produtos (semana)</div>
+              <div class="top-products">
+                <div class="top-product">
+                  <span class="top-rank">1</span>
+                  <span class="top-name">Picanha 300g</span>
+                  <span class="top-val">R$ 2.040</span>
+                </div>
+                <div class="top-product">
+                  <span class="top-rank">2</span>
+                  <span class="top-name">Pizza Margherita G</span>
+                  <span class="top-val">R$ 1.560</span>
+                </div>
+                <div class="top-product">
+                  <span class="top-rank">3</span>
+                  <span class="top-name">Cerveja Artesanal</span>
+                  <span class="top-val">R$ 1.320</span>
                 </div>
               </div>
               <div class="fbm-divider"></div>
-              <div class="fbm-sub-header">📊 Vendas por hora</div>
-              <div class="chart-bars" style="height:48px;margin:8px 12px 12px;">
-                <div class="bar" style="height:30%"></div>
-                <div class="bar" style="height:55%"></div>
-                <div class="bar" style="height:42%"></div>
-                <div class="bar" style="height:75%"></div>
-                <div class="bar" style="height:60%"></div>
-                <div class="bar" style="height:95%"></div>
-                <div class="bar bar-active" style="height:78%"></div>
-              </div>
-              <div class="fbm-divider"></div>
-              <div class="fbm-sub-header">🔍 Auditoria recente</div>
-              <div class="audit-row">
-                <div class="audit-item">
-                  <span class="audit-dot"></span>
-                  <span class="audit-text">Mesa 5 fechada por <strong>João</strong></span>
-                  <span class="audit-time">18:42</span>
-                </div>
-                <div class="audit-item">
-                  <span class="audit-dot"></span>
-                  <span class="audit-text">Sangria R$ 200 — <strong>Maria</strong></span>
-                  <span class="audit-time">17:15</span>
+              <div class="shift-row">
+                <div class="shift-icon-wrap">📋</div>
+                <div class="shift-body">
+                  <div class="shift-title">Turno — João (Caixa)</div>
+                  <div class="shift-meta">34 mov. · R$ 4.820 · <span style="color:var(--accent-light)">↓ Relatório PDF</span></div>
                 </div>
               </div>
             </div>
