@@ -6,6 +6,7 @@ const interval = params.get('interval') || 'monthly';
 
 let currentStep = 1;
 const stepData = {};
+let isSubmitting = false;
 
 function formatPrice(value) {
   return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -195,8 +196,10 @@ function collectStep1() {
 
 // ===== SUBMIT =====
 async function handleSubmit() {
+  if (isSubmitting) return;
   if (!validateStep2()) return;
 
+  isSubmitting = true;
   const btn = document.getElementById('submit-btn');
   const globalErr = document.getElementById('form-global-error');
   globalErr.style.display = 'none';
@@ -254,6 +257,7 @@ async function handleSubmit() {
     globalErr.style.display = 'block';
     btn.disabled = false;
     btn.innerHTML = 'Continuar para pagamento →';
+    isSubmitting = false;
   }
 }
 
