@@ -478,6 +478,168 @@ h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
 .mtr-status.paid { background: rgba(99,102,241,0.15); color: var(--accent-light); }
 .mtr-value { color: var(--text-primary); font-weight: 600; min-width: 56px; text-align: right; }
 
+/* ===== STATS STRIP ===== */
+.stats-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+.stats-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 48px;
+}
+.stat-icon { font-size: 24px; flex-shrink: 0; }
+.stat-value { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+.stat-label { font-size: 12px; color: var(--text-muted); }
+.stat-div { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+@media (max-width: 768px) {
+  .stats-grid { flex-direction: column; gap: 20px; }
+  .stat-item { padding: 0 24px; }
+  .stat-div { width: 40px; height: 1px; }
+}
+
+/* ===== FEATURE BLOCKS (alternating 2-col) ===== */
+.feature-blocks { display: flex; flex-direction: column; }
+
+.feature-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border);
+}
+.feature-block:last-child { border-bottom: none; }
+
+.feature-block--reverse .feature-block-visual { order: -1; }
+
+@media (max-width: 900px) {
+  .feature-block { grid-template-columns: 1fr; gap: 36px; padding: 48px 0; }
+  .feature-block--reverse .feature-block-visual { order: 0; }
+}
+
+.fblock-icon { font-size: 30px; margin-bottom: 14px; }
+
+.feature-block-text h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.fblock-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+.feature-detail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.feature-detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.feature-detail-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ===== FEATURE BLOCK VISUAL MOCKUP ===== */
+.fb-mockup {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.fbm-header {
+  background: rgba(0,0,0,.25);
+  padding: 10px 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+.fbm-sub-header {
+  padding: 8px 12px 2px;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.fbm-divider { height: 1px; background: var(--border); margin: 6px 0; }
+
+/* KDS */
+.kds-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 10px; }
+.kds-ticket { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+.kds-new { border-color: var(--accent) !important; }
+.kds-doing { border-color: #f59e0b !important; }
+.kds-done { border-color: var(--green) !important; opacity: .7; }
+.kds-t-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.kds-mesa-num { font-size: 11px; font-weight: 700; color: var(--text-primary); }
+.kds-badge { font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+.kds-badge--new { background: var(--accent-glow); color: var(--accent-light); }
+.kds-badge--doing { background: rgba(245,158,11,.15); color: #f59e0b; }
+.kds-badge--done { background: var(--green-dim); color: var(--green); }
+.kds-t-items { margin-bottom: 5px; }
+.kds-t-item { font-size: 10px; color: var(--text-secondary); padding: 2px 0; }
+.kds-t-item--done { color: var(--text-muted); text-decoration: line-through; }
+.kds-t-time { font-size: 9px; color: var(--text-muted); text-align: right; }
+.print-indicator {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 12px; font-size: 10px; color: var(--text-muted);
+  background: rgba(0,0,0,.15); border-top: 1px solid var(--border);
+}
+
+/* Product pricing */
+.product-pricing { padding: 10px 12px; }
+.pp-row { display: flex; justify-content: space-between; font-size: 11px; padding: 5px 0; border-bottom: 1px solid var(--border); }
+.pp-row:last-child { border-bottom: none; }
+.pp-row--main { font-weight: 700; font-size: 12px; }
+.pp-label { color: var(--text-secondary); }
+.pp-value { font-weight: 600; }
+.stock-alert { font-size: 10px; color: #f59e0b; padding: 6px 12px 10px; }
+
+/* Financial metrics */
+.fin-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; padding: 10px; }
+.fin-metric { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+.fin-metric-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+.fin-metric-value { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.fin-metric-value.fin-green { color: var(--green); }
+.fin-metric-value.fin-red { color: #f87171; }
+.fin-metric-value.fin-accent { color: var(--accent-light); }
+.fin-metric-delta { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
+
+/* Audit rows */
+.audit-row { padding: 6px 10px 10px; display: flex; flex-direction: column; gap: 5px; }
+.audit-item { display: flex; align-items: center; gap: 7px; font-size: 10px; color: var(--text-muted); }
+.audit-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.audit-text { flex: 1; }
+.audit-text strong { color: var(--text-secondary); }
+.audit-time { font-size: 9px; color: var(--text-muted); }
+
 /* ===== FEATURES ===== */
 .features {
   background: var(--bg-secondary);
