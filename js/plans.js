@@ -1,19 +1,24 @@
-
 async function loadPlans() {
   const container = document.getElementById('plans-container');
   if (!container) return;
 
+  container.innerHTML = '<div class="plans-loading"><span class="spinner"></span> Carregando planos...</div>';
+
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
+    const timeout = setTimeout(() => controller.abort(), 8000);
     const res = await fetch(`${CONFIG.API_BASE_URL}/plans`, { signal: controller.signal });
     clearTimeout(timeout);
-    if (!res.ok) throw new Error('Falha ao carregar planos');
+    if (!res.ok) throw new Error(`Erro ${res.status}`);
     const plans = await res.json();
     renderPlans(container, plans);
   } catch (err) {
-    console.warn('API indisponível, usando planos de exemplo:', err.message);
-    renderPlans(container, FALLBACK_PLANS);
+    console.error('Erro ao carregar planos:', err.message);
+    container.innerHTML = `
+      <div class="plans-error">
+        <p>Não foi possível carregar os planos no momento.</p>
+        <button onclick="loadPlans()" class="btn-retry">Tentar novamente</button>
+      </div>`;
   }
 }
 
