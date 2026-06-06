@@ -245,7 +245,7 @@ h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
 }
 .hero-badge strong { color: var(--text-primary); font-weight: 600; }
 
-.hero-copy h1 { margin-bottom: 20px; }
+.hero-copy h1 { margin-bottom: 20px; font-size: 2.5rem;}
 
 .hero-sub {
   font-size: 1.1rem;
