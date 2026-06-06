@@ -22,12 +22,18 @@
         <img src="assets/icon.svg" alt="Operaris" style="width:36px;height:36px;border-radius:8px;" />
         Operaris
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#features">Funcionalidades</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#planos">Planos</a></li>
+        <li class="nav-cta-mobile"><a href="#planos" class="btn btn-primary">Ver planos</a></li>
       </ul>
-      <a href="#planos" class="btn btn-primary">Ver planos</a>
+      <a href="#planos" class="btn btn-primary nav-cta-desktop">Ver planos</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -444,5 +450,21 @@
 
   <script src="js/config.js"></script>
   <script src="js/plans.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      hamburger.classList.toggle('active', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,3 +1,11 @@
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 async function loadPlans() {
   const container = document.getElementById('plans-container');
   if (!container) return;
@@ -35,21 +43,25 @@ function renderPlan(plan, featured) {
   const interval = plan.interval === 'yearly' ? 'ano' : 'mês';
   const features = buildFeatureList(plan);
 
+  const maxDev = Number(plan.maxDevices);
+  const devLabel = `${maxDev} dispositivo${maxDev > 1 ? 's' : ''}`;
+  const billingLabel = plan.interval === 'yearly' ? 'Cobrança anual' : 'Cobrança mensal';
+
   return `
     <div class="plan-card ${featured ? 'featured' : ''}">
       ${featured ? '<span class="plan-badge">Mais Popular</span>' : ''}
-      <div class="plan-name">${plan.name}</div>
-      <div class="plan-desc">${plan.description || 'Solução completa para seu estabelecimento.'}</div>
+      <div class="plan-name">${esc(plan.name)}</div>
+      <div class="plan-desc">${esc(plan.description || 'Solução completa para seu estabelecimento.')}</div>
       <div class="plan-price">
         <span class="price-currency">R$</span>
-        <span class="price-value">${formatPrice(plan.basePrice)}</span>
-        <span class="price-period">/${interval}</span>
+        <span class="price-value">${esc(formatPrice(plan.basePrice))}</span>
+        <span class="price-period">/${esc(interval)}</span>
       </div>
-      <div class="plan-interval">${plan.interval === 'yearly' ? 'Cobrança anual' : 'Cobrança mensal'} · ${plan.maxDevices} dispositivo${plan.maxDevices > 1 ? 's' : ''}</div>
+      <div class="plan-interval">${esc(billingLabel)} · ${esc(devLabel)}</div>
       <ul class="plan-features">
-        ${features.map(f => `<li><span class="check">✓</span> ${f}</li>`).join('')}
+        ${features.map(f => `<li><span class="check">✓</span> ${esc(f)}</li>`).join('')}
       </ul>
-      <a href="cadastro.html?planId=${plan.id}&planName=${encodeURIComponent(plan.name)}&price=${plan.basePrice}&interval=${plan.interval}"
+      <a href="cadastro.html?planId=${encodeURIComponent(plan.id)}&planName=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.basePrice)}&interval=${encodeURIComponent(plan.interval)}"
          class="plan-cta ${featured ? 'primary' : 'secondary'}">
         Contratar agora
       </a>
@@ -69,7 +81,6 @@ function buildFeatureList(plan) {
       expenses:   'Gestão de despesas',
       cashier:    'Caixa com sangria e fechamento',
       reports:    'Relatórios detalhados',
-      multiUser:  'Multi-usuário',
       multiuser:  'Multi-usuário',
       products:   'Cadastro de produtos/insumos',
       management: 'Gestão avançada (estoque, despesas e produção)',
@@ -79,7 +90,7 @@ function buildFeatureList(plan) {
       audit:      'Auditoria e log de ações',
     };
     Object.entries(plan.features).forEach(([k, v]) => {
-      if (v && map[k]) features.push(map[k]);
+      if (v && map[k.toLowerCase()]) features.push(map[k.toLowerCase()]);
     });
   }
 
