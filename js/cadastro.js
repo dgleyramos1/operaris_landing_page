@@ -239,7 +239,6 @@ async function handleSubmit() {
     }
 
     if (result.checkoutUrl) {
-      goToStep(3);
       window.location.href = result.checkoutUrl;
     } else {
       const p = new URLSearchParams({
