@@ -226,6 +226,7 @@ async function handleSubmit() {
     clearTimeout(timeout);
 
     const result = await res.json();
+    console.log('[subscribe] status:', res.status, 'response:', result);
 
     if (!res.ok) {
       const friendlyErrors = {
